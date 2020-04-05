@@ -1,2 +1,8 @@
 
 log: "log"
+db:
+  username: "root"
+  password: "123456"
+  dbname: "chuman_user"
+  host: "127.0.0.1"
+  port: "3306"

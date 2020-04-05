@@ -3,6 +3,7 @@ module mysql-explainer
 go 1.13
 
 require (
+	github.com/jinzhu/gorm v1.9.12
 	go.uber.org/config v1.4.0
 	go.uber.org/multierr v1.5.0 // indirect
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect

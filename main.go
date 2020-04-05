@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"mysql-explainer/explainer"
 	"mysql-explainer/utils/config"
 	"mysql-explainer/utils/log"
 )
@@ -10,7 +11,9 @@ func main() {
 	initConfig()
 	initLogger()
 
-	log.GetLogger().Println("testing")
+	initDb()
+
+
 }
 
 func initConfig() {
@@ -26,6 +29,19 @@ func initConfig() {
 func initLogger() {
 	logFile := config.GetConfigFile()
 	err := log.InitLogger(logFile)
+	if err != nil{
+		panic(err)
+	}
+}
+
+func initDb(){
+	c := explainer.Conn{}
+	err := config.GetDatabaseSetting(&c)
+
+	if err != nil{
+		panic(err)
+	}
+	err = explainer.InitDb(c)
 	if err != nil{
 		panic(err)
 	}

@@ -26,3 +26,9 @@ func Load(file string) error{
 func GetConfigFile() string {
 	return config.Get("log").String()
 }
+
+func GetDatabaseSetting(c interface{}) error {
+	//fmt.Println(config.Get("db"))
+	//os.Exit(1)
+	return config.Get("db").Populate(c)
+}
