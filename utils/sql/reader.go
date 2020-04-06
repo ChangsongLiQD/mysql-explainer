@@ -24,7 +24,7 @@ func Init(f string){
 
 func ReadLine() (string, error){
 	sql, err := buf.ReadString('\n')
-	if err != nil {
+	if err != nil && len(sql) == 0 {
 		return "", err
 	}
 	sql = strings.TrimSpace(sql)
