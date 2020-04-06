@@ -5,7 +5,7 @@ A checking tool of mysql is for explaining the sql query.
   your project is released.
   
 ----
-#### How to use?
+### How to use?
 
 ````
 // download project
