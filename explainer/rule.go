@@ -13,7 +13,10 @@ type rule struct {
 }
 
 func NewRule() *rule{
-	return &rule{}
+	st := make(map[string]bool)
+	t := make(map[string]bool)
+	extra := make(map[string]bool)
+	return &rule{st, t, extra}
 }
 
 type Rule interface {

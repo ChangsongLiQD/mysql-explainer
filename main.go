@@ -67,7 +67,7 @@ func checkSqlFile(){
 	opt := explainer.NewOptimize()
 	opt.SetRule(r)
 
-	for query, err := sql.ReadLine(); err != nil;{
+	for query, err := sql.ReadLine(); err == nil;{
 		exp := explainer.GetExplainResult(query)
 		opt.SetExplain(exp)
 
