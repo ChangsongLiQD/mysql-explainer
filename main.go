@@ -86,7 +86,10 @@ func checkSqlFile(){
 
 		rec := opt.CheckRule()
 		if rec.HasRecommend(){
-			report.Write(query, rec.GetAllRecommend())
+			_, err = report.Write(query, rec.GetAllRecommend())
+			if err != nil{
+				logger.Println(err)
+			}
 		}
 	}
 }

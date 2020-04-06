@@ -1,0 +1,4 @@
+SELECT * FROM chuman_user.gugu_user;
+----------------------------------
+(1) Type: ALL is not valid. 
+
