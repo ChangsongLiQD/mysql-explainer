@@ -1,4 +1,4 @@
-package main
+package mysql_explainer
 
 import (
 	"flag"

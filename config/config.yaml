@@ -6,3 +6,15 @@ db:
   dbname: "chuman_user"
   host: "127.0.0.1"
   port: "3306"
+rule:
+  selecttype:
+    - "SUBQUERY"
+    - "DERIVED"
+    - "UNION"
+    - "UNION RESULT"
+  type:
+    - "ALL"
+    - "index"
+  extra:
+    - "Using filesort"
+    - "Using temporary"
