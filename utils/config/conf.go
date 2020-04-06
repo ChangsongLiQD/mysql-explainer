@@ -28,7 +28,14 @@ func GetConfigFile() string {
 }
 
 func GetDatabaseSetting(c interface{}) error {
-	//fmt.Println(config.Get("db"))
-	//os.Exit(1)
 	return config.Get("db").Populate(c)
+}
+
+func GetRuleSetting() (map[string] []string, error) {
+	m := make(map[string] []string)
+	err := config.Get("rule").Populate(&m)
+	if err != nil {
+		return nil, err
+	}
+	return m, nil
 }

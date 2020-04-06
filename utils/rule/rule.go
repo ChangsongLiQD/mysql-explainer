@@ -2,7 +2,7 @@ package rule
 
 import "mysql-explainer/explainer"
 
-func getRule(ruleConfig map[string] []string) explainer.Rule{
+func GetRule(ruleConfig map[string] []string) explainer.Rule{
 	rule := explainer.NewRule()
 	for t, ruleNames := range ruleConfig {
 		tp := getTypeNum(t)

@@ -28,8 +28,8 @@ func InitDb(conn Conn) error{
 	return nil
 }
 
-func GetExplainResult(query string) *Explain{
-	exp := &Explain{}
+func GetExplainResult(query string) Explain{
+	exp := Explain{}
 	db.Raw("EXPLAIN " + query).Scan(exp)
 
 	return exp

@@ -5,6 +5,10 @@ type optimize struct {
 	r   Rule
 }
 
+func NewOptimize() Optimizer{
+	return &optimize{}
+}
+
 type Optimizer interface {
 	SetExplain(exp Explain)
 	SetRule(r Rule)
