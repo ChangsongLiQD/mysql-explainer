@@ -1,5 +1,7 @@
 package explainer
 
+import "strings"
+
 const (
 	RULE_SELECT_TYPE = iota
 	RULE_TYPE
@@ -43,13 +45,27 @@ func (r *rule) CheckRule(t int, n string) bool{
 	case RULE_TYPE:
 		valid, ok = r.t[n]
 	case RULE_EXTRA:
-		valid, ok = r.extra[n]
+		return r.checkExtra(n)
 	}
 
 	if !ok {
 		return true
 	}
 	return valid
+}
+
+func (r *rule) checkExtra(n string) bool{
+	if n == "" {
+		return true
+	}
+
+	for rule := range r.extra {
+		find := strings.Contains(n, rule)
+		if find{
+			return false
+		}
+	}
+	return true
 }
 
 func getTypeText(t int) string{
