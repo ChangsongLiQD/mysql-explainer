@@ -2,18 +2,19 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"io"
 	l "log"
 	"mysql-explainer/explainer"
 	"mysql-explainer/utils/config"
 	"mysql-explainer/utils/log"
+	"mysql-explainer/utils/report"
 	"mysql-explainer/utils/rule"
 	"mysql-explainer/utils/sql"
 )
 
 var (
 	sqlFile *string
+	reportFile *string
 	logger * l.Logger
 )
 
@@ -27,6 +28,7 @@ func main() {
 func initConfig() {
 	configFile := flag.String("conf", "config/config.yaml", "Config file path")
 	sqlFile = flag.String("sql", "sql/example.sql", "Checking sql file")
+	reportFile = flag.String("report", "report/report.txt", "Report file")
 	flag.Parse()
 
 	err := config.Load(*configFile)
@@ -58,6 +60,7 @@ func initDb(){
 }
 
 func checkSqlFile(){
+	report.SetFile(*reportFile)
 	sql.Init(*sqlFile)
 	rules, err := config.GetRuleSetting()
 	if err != nil {
@@ -83,7 +86,7 @@ func checkSqlFile(){
 
 		rec := opt.CheckRule()
 		if rec.HasRecommend(){
-			fmt.Println(rec.GetAllRecommend())
+			report.Write(query, rec.GetAllRecommend())
 		}
 	}
 }

@@ -25,16 +25,11 @@ func InitLogger(logPath string) error{
 func getFileName() string {
 	now := time.Now()
 	year, month, day := now.Date()
-
 	return fmt.Sprintf(
-		"%d-%d-%d_%d:%d:%d:%d.log",
+		"%d-%d-%d.log",
 		year,
 		month,
 		day,
-		now.Hour(),
-		now.Minute(),
-		now.Second(),
-		now.Nanosecond(),
 	)
 }
 
