@@ -30,7 +30,7 @@ func InitDb(conn Conn) error{
 
 func GetExplainResult(query string) Explain{
 	exp := Explain{}
-	db.Raw("EXPLAIN " + query).Scan(exp)
+	db.Raw("EXPLAIN " + query).Scan(&exp)
 
 	return exp
 }

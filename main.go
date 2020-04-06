@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	l "log"
 	"mysql-explainer/explainer"
 	"mysql-explainer/utils/config"
@@ -67,7 +68,16 @@ func checkSqlFile(){
 	opt := explainer.NewOptimize()
 	opt.SetRule(r)
 
-	for query, err := sql.ReadLine(); err == nil;{
+	for {
+		query, err := sql.ReadLine()
+		if err != nil{
+			if err != io.EOF {
+				logger.Fatal(err)
+			}
+			sql.Close()
+			break
+		}
+
 		exp := explainer.GetExplainResult(query)
 		opt.SetExplain(exp)
 

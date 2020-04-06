@@ -19,7 +19,7 @@ func Init(f string){
 	if err != nil {
 		logger.Fatal(err)
 	}
-	buf= bufio.NewReader(file)
+	buf = bufio.NewReader(file)
 }
 
 func ReadLine() (string, error){

@@ -32,7 +32,7 @@ func (o *optimize) CheckRule() Recommend{
 
 	rec := NewRecmd()
 	for t, n := range m{
-		valid := o.r.CheckRule(RULE_SELECT_TYPE, o.exp.SelectType)
+		valid := o.r.CheckRule(t, n)
 		if !valid {
 			rec.Recommend(t, n)
 		}
