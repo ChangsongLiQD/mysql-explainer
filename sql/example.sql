@@ -1,1 +1,10 @@
-SELECT * FROM chuman_user.gugu_user;
+SELECT * FROM malle_video.gugu_video_user_classify_2004 WHERE classification in (2) LIMIT 1000;
+SELECT * FROM malle_video.gugu_short_video_user_index_00 WHERE `status` =1  AND `user_id` = 29632 LIMIT 0,30;
+SELECT * FROM malle_video.gugu_short_video_user_index_00 WHERE `status` IN (1,2) AND `user_id` = 29632 LIMIT 0,30;
+SELECT * FROM malle_video.gugu_short_video_2004 WHERE `status` = 1 ORDER BY id DESC LIMIT 500;
+SELECT * FROM malle_video.gugu_short_video_2004 WHERE `is_recommend` = 0 AND `publish_time` BETWEEN '1586966399' AND '1587052799' AND `status` = 1 ORDER BY id DESC LIMIT 200 ;
+SELECT * FROM malle_video.gugu_short_video_2004 WHERE `is_recommend` = 1 AND `status` = 1 AND `end_rec_time` BETWEEN '1586966399' AND '1587052799' ORDER BY id DESC LIMIT 200;
+SELECT video_id,gmt_create FROM malle_video.gugu_short_video_like_49 WHERE user_id = 36529;
+SELECT * FROM malleali.gugu_activity_template_manual_vote_record where activity_id = 48 and work_type = 3 and work_id = 96097;
+SELECT * FROM malle_video.`gugu_short_video_comment_202004` where video_id = 20043 ORDER BY like_num desc  limit 1000;
+SELECT * FROM malle_video.`gugu_short_video_comment_202004` where comment_source_id = '2020041' ORDER BY like_num desc limit 1000;

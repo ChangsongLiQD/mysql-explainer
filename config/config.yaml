@@ -1,10 +1,10 @@
 
 log: "log" # log file path
 db: # database configuration
-  username: "root" # account username
-  password: "123456" # account password
-  dbname: "chuman_user" # database name
-  host: "127.0.0.1" # database host
+  username: "dev" # account username
+  password: "dev#123456!" # account password
+  dbname: "malle_video" # database name
+  host: "192.168.0.160" # database host
   port: "3306" # database port
 rule: # mysql banned explain fields' value
   selecttype: # mysql explain select_type banned values
@@ -14,7 +14,6 @@ rule: # mysql banned explain fields' value
     - "UNION RESULT"
   type: # mysql explain type banned values
     - "ALL"
-    - "index"
   extra: # mysql explain type banned values
     - "Using filesort"
     - "Using temporary"
